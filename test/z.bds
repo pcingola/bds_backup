@@ -1,12 +1,25 @@
 #!/usr/bin/env bds
 
-int f06(int x) {
-	println "OK"
-	return 2 + x
+
+class Z {
+	int x
+	void z() {
+		println("Z.z()")
+		println(x)
+	}
 }
 
-void test06() {
-	z := f06(2)
-	assert(4, z)
+class A {
+	Z z
+	int f() {
+		println("A.f()")
+		z.z()
+		return 1
+	}
 }
+
+a := new A()
+println("a.z : $a.z")
+a.f()
+ok := true
 
